@@ -1,0 +1,43 @@
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-orange);
+  border-radius: 0px; /* brutalist square dot cursor */
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.custom-cursor-trail {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--accent-teal);
+  border-radius: 0px; /* brutalist square trail target */
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9998;
+  transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.custom-cursor-dot.hovered {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-teal);
+}
+
+.custom-cursor-trail.hovered {
+  width: 50px;
+  height: 50px;
+  border-color: var(--accent-orange);
+  background-color: rgba(255, 90, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+  .custom-cursor-dot,
+  .custom-cursor-trail {
+    display: none;
+  }
+}

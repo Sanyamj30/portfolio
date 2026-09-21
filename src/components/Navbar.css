@@ -1,0 +1,221 @@
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 24px 0;
+  transition: var(--transition-smooth);
+}
+
+.navbar-header.scrolled {
+  padding: 16px 0;
+  background: var(--bg-sand);
+  border-bottom: var(--border-thick);
+  box-shadow: 0 4px 12px rgba(22, 24, 26, 0.05);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: var(--transition-fast);
+  text-transform: uppercase;
+}
+
+.navbar-logo:hover {
+  color: var(--accent-orange);
+}
+
+.logo-dot {
+  color: var(--accent-orange);
+}
+
+.navbar-desktop-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links-capsule {
+  display: flex;
+  gap: 8px;
+  background: var(--bg-slate);
+  border: var(--border-thick);
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.navbar-link {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-gray-light);
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 2px;
+  transition: var(--transition-smooth);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.navbar-link:hover {
+  color: var(--text-light);
+}
+
+.navbar-link.active {
+  color: var(--text-light);
+}
+
+.active-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--accent-orange);
+  border-radius: 2px;
+  z-index: -1;
+  box-shadow: none;
+}
+
+.navbar-cta {
+  padding: 10px 22px !important;
+  font-size: 0.85rem !important;
+  border-radius: 4px !important;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.navbar-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-dark);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Mobile Drawer */
+.navbar-mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-sand);
+  background-image: radial-gradient(circle, rgba(22, 24, 26, 0.08) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: var(--transition-smooth);
+  opacity: 0;
+  pointer-events: none;
+  border-bottom: var(--border-thick);
+}
+
+.navbar-mobile-drawer.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navbar-mobile-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-mobile-link {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  text-transform: uppercase;
+}
+
+.navbar-mobile-link:hover,
+.navbar-mobile-link.active {
+  color: var(--accent-orange);
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .navbar-desktop-nav,
+  .navbar-cta,
+  .desktop-only-toggle {
+    display: none;
+  }
+  
+  .navbar-mobile-toggle {
+    display: block;
+  }
+}
+
+/* Persona Toggle */
+.persona-toggle-container {
+  display: flex;
+  background: var(--bg-slate);
+  border: var(--border-thick);
+  padding: 4px;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+.persona-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--text-gray-light);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-transform: uppercase;
+}
+
+.persona-toggle-btn:hover {
+  color: var(--text-light);
+}
+
+.persona-toggle-btn.active {
+  background: var(--accent-orange);
+  color: var(--text-light);
+  box-shadow: none;
+  border: none;
+}
+
+/* Mobile Toggle overrides */
+.persona-toggle-container.mobile-toggle {
+  margin-right: 0;
+  margin-bottom: 12px;
+  padding: 6px;
+}
+
+.persona-toggle-container.mobile-toggle .persona-toggle-btn {
+  font-size: 0.95rem;
+  padding: 8px 18px;
+}

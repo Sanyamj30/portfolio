@@ -1,0 +1,235 @@
+.skills-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-sand);
+  border-top: var(--border-thick);
+  border-bottom: var(--border-thick);
+}
+
+.skills-glow-1,
+.skills-glow-2 {
+  display: none !important;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.capability-card {
+  padding: 36px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.capability-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.capability-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(245, 242, 235, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cap-icon-blue {
+  color: var(--accent-orange);
+}
+
+.cap-icon-purple {
+  color: var(--accent-teal);
+}
+
+.cap-icon-silver {
+  color: var(--text-gray-light);
+}
+
+.capability-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.capability-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-gray-light);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.proficiency-section {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.proficiency-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.proficiency-label {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-gray-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.proficiency-val {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-orange);
+  font-family: var(--font-mono);
+}
+
+.proficiency-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0px; /* brutalist flat tracks */
+  overflow: hidden;
+  border: 1px solid rgba(245, 242, 235, 0.1);
+}
+
+.proficiency-fill {
+  height: 100%;
+  border-radius: 0px;
+  width: 0%;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: var(--accent-orange);
+}
+
+.capability-card.is-hovered .proficiency-fill {
+  background-color: var(--accent-orange);
+}
+
+.capability-divider {
+  height: 1px;
+  background: rgba(245, 242, 235, 0.15);
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.extended-tech-drawer {
+  max-height: 0px;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 0px;
+}
+
+.extended-tech-drawer.drawer-open {
+  max-height: 140px;
+  opacity: 1;
+  margin-top: 20px;
+  border-top: 1px dashed rgba(245, 242, 235, 0.15);
+  padding-top: 16px;
+}
+
+.extended-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-gray-light);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.plus-icon {
+  color: var(--accent-teal);
+}
+
+.extended-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.extended-tag {
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(245, 242, 235, 0.12);
+  color: var(--text-gray-light);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+}
+
+.capability-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(245, 242, 235, 0.12);
+  padding: 6px 12px;
+  border-radius: 2px; /* brutalist blocky badge */
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-gray-light);
+  font-family: var(--font-mono);
+  transition: var(--transition-fast);
+  text-transform: uppercase;
+}
+
+.tech-tag-badge:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+.tag-spark {
+  color: var(--accent-orange);
+  opacity: 0.8;
+}
+
+.capability-card:hover .tag-spark {
+  animation: tag-sparkle 1.2s infinite ease-in-out;
+}
+
+@keyframes tag-sparkle {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; color: var(--accent-teal); }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@media (max-width: 991px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .capability-card {
+    padding: 30px;
+  }
+}
+
+.capability-card:hover {
+  transform: none;
+}

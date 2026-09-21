@@ -1,0 +1,361 @@
+/* Premium Sand & Slate Cyber-Brutalist Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  /* Colors - Cyber-Brutalist Sand & Slate */
+  --bg-sand: #f5f2eb;
+  --bg-sand-dark: #eae5db;
+  --bg-slate: #16181a;
+  --bg-slate-light: #222528;
+  
+  --text-dark: #121314;
+  --text-light: #f5f2eb;
+  --text-gray-dark: #60666d;
+  --text-gray-light: #9ea5ab;
+  
+  --accent-orange: #ff5a00; /* Hazard Orange */
+  --accent-teal: #00a6b4;   /* Blueprint Teal */
+  
+  --border-thick: 2px solid #16181a;
+  --border-light: 1px solid rgba(22, 24, 26, 0.15);
+  --border-slate: 1px solid rgba(245, 242, 235, 0.15);
+  
+  --shadow-flat: 5px 5px 0px #16181a;
+  --shadow-flat-hover: 2px 2px 0px #16181a;
+  --shadow-orange: 5px 5px 0px #ff5a00;
+  
+  /* Fonts */
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  --font-body: 'Space Grotesk', -apple-system, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  
+  /* Transitions */
+  --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset and Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-sand);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-sand);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Tactile Technical Dotted Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(22, 24, 26, 0.08) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  background-position: center;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Selection Coloration */
+::selection {
+  background-color: var(--accent-orange);
+  color: #ffffff;
+}
+
+/* Tactical Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-sand-dark);
+  border-left: var(--border-thick);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-slate);
+  border: 2px solid var(--bg-sand-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-orange);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-dark);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Brutalist Typography */
+.gradient-text-silver {
+  color: var(--text-dark) !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+  text-shadow: none !important;
+}
+
+.gradient-text-blue {
+  color: var(--accent-orange) !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.gradient-text-brand {
+  color: var(--text-dark) !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+/* Brutalist Block Cards (Aliased as glass-panel) */
+.glass-panel {
+  background: var(--bg-slate);
+  border: var(--border-thick);
+  border-radius: 4px;
+  position: relative;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-flat);
+  color: var(--text-light);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.glass-panel:hover {
+  background: var(--bg-slate-light);
+  border-color: var(--accent-orange);
+  box-shadow: var(--shadow-orange);
+  transform: translate(-3px, -3px);
+}
+
+/* HUD Sci-Fi Card Corner Brackets (Brutalist Technical Crosshairs) */
+.hud-corners::before,
+.hud-corners::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: var(--border-slate);
+  pointer-events: none;
+  z-index: 10;
+  transition: var(--transition-smooth);
+}
+.hud-corners::before {
+  top: 4px;
+  left: 4px;
+  border-right: none;
+  border-bottom: none;
+}
+.hud-corners::after {
+  bottom: 4px;
+  right: 4px;
+  border-left: none;
+  border-top: none;
+}
+
+.glass-panel:hover.hud-corners::before,
+.glass-panel:hover.hud-corners::after {
+  border-color: var(--accent-orange);
+  width: 14px;
+  height: 14px;
+}
+
+/* Buttons (Tactile brutalist press) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--accent-orange);
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: var(--border-thick);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-flat);
+}
+
+.btn-primary:hover {
+  background: var(--accent-orange);
+  color: #ffffff;
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-flat-hover);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg-sand);
+  color: var(--text-dark);
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: var(--border-thick);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-flat);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-sand-dark);
+  color: var(--text-dark);
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-flat-hover);
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 120px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title-container {
+  text-align: center;
+  margin-bottom: 65px;
+}
+
+.section-subtitle {
+  font-family: var(--font-mono);
+  color: var(--accent-orange);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text-dark);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* Disable blur spots for brutalist look */
+.glow-spot {
+  display: none !important;
+}
+
+/* 3D Canvas Container */
+.three-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.interactive-three {
+  pointer-events: auto !important;
+}
+
+/* Infinite Scrolling Tech Marquee */
+.marquee-container {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  width: 100%;
+  padding: 18px 0;
+  background: var(--bg-sand-dark);
+  border-top: var(--border-thick);
+  border-bottom: var(--border-thick);
+  margin: 40px 0;
+  position: relative;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 50px;
+  animation: scroll-marquee 30s linear infinite;
+}
+
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-item {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.marquee-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-orange);
+  border-radius: 0px; /* brutalist square dot */
+  display: inline-block;
+}

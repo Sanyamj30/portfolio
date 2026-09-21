@@ -1,0 +1,7 @@
+.tech-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  margin: 20px 0;
+}
